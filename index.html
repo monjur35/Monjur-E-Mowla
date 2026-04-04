@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monjur E Mowla - Mobile Application Developer Portfolio</title>
+    <meta name="description"
+        content="Monjur E Mowla - Experienced Mobile Application Developer specializing in Android (Kotlin/Java) and Flutter (Dart).">
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div id="cursor"></div>
+
+    <!-- Background Design Elements -->
+    <div class="background-blobs"></div>
+
+    <!-- Background Animation Layer -->
+    <div id="glow-container">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+    <!-- Sidebar Email -->
+    <div class="side-email tech-font">
+        <a href="https://github.com/monjur35" target="_blank" class="side-icon"><i data-lucide="github"></i></a>
+        <a href="https://linkedin.com/in/monjur-e-mowla" target="_blank" class="side-icon"><i
+                data-lucide="linkedin"></i></a>
+        <a href="mailto:swemonjur@gmail.com" class="side-email-text">SWEMONJUR@GMAIL.COM</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container nav-content">
+            <div class="logo tech-font accent-text">MONJUR.</div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-toggle">
+                <i data-lucide="menu"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="container hero-content">
+                <div class="hero-text reveal" style="text-align: center; margin: 0 auto;">
+                    <h1 style="display: block; width: 100%;">Monjur E Mowla</h1>
+                    <h3 class="tech-font">Mobile Application Developer</h3>
+                    <p>Mobile Developer with 5+ years of experience in native Android (Kotlin, Java) and Flutter. Expert
+                        in architecture design, performance optimization, and building clean, maintainable code.</p>
+                    <div class="social-hero">
+                        <a href="https://linkedin.com/in/monjur-e-mowla" target="_blank" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                stroke="none">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.896 1.639-1.841 3.373-1.841 3.612 0 4.279 2.378 4.279 5.474v6.258zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z" />
+                            </svg>
+                        </a>
+                        <a href="https://github.com/monjur35" target="_blank" aria-label="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                stroke="none">
+                                <path
+                                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.01-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                            </svg>
+                        </a>
+                        <a href="mailto:swemonjur@gmail.com"><i data-lucide="mail"></i></a>
+                        <a href="tel:+8801568085234"><i data-lucide="phone"></i></a>
+                    </div>
+
+                </div>
+                <div class="hero-visual reveal">
+                    <!-- Placeholder for tech-themed visual or Lottie animation -->
+                    <div class="tech-orb">
+                        <div class="orb-inner"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title"><span>ABOUT ME</span></h2>
+                <div class="about-grid">
+                    <div class="about-info reveal">
+                        <p>I am a dedicated Mobile Application Developer specializing in <strong>Android (Kotlin,
+                                Java)</strong> and <strong>Flutter (Dart)</strong>. With over 5 years in the industry, I
+                            have delivered high-quality applications across multiple domains including <strong>Fintech,
+                                B2B, eCommerce,</strong> and <strong>Social Media</strong>.</p>
+                        <p>Experienced in building <strong>large-scale applications</strong> using <strong>MVVM</strong>
+                            and <strong>Clean Architecture</strong>, I prioritize scalability and performance. I have
+                            contributed to technical decisions, mentored team members, and continuously improved
+                            development standards for market-leading brands.</p>
+                        <div class="about-stats">
+                            <div class="stat-item glass-card">
+                                <h3>5+</h3>
+                                <p>Years Exp.</p>
+                            </div>
+                            <div class="stat-item glass-card">
+                                <h3>10+</h3>
+                                <p>Major Apps</p>
+                            </div>
+                            <div class="stat-item glass-card">
+                                <h3>100k+</h3>
+                                <p>User Base</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-tech-list reveal">
+                        <h4 class="tech-font">Core Philosophy</h4>
+                        <p>I believe in <strong>Clean Code</strong>, robust <strong>Architecture</strong>, and constant
+                            <strong>Learning</strong>. My approach balances rapid delivery with long-term
+                            maintainability, ensuring every line of code serves both the user and the business.
+                        </p>
+                        <div class="tech-tags" style="margin-top: 2rem;">
+                            <span>Clean Architecture</span>
+                            <span>MVVM</span>
+                            <span>Unit Testing</span>
+                            <span>CI/CD</span>
+                            <span>Performance Optimization</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="experience-section">
+            <div class="container">
+                <h2 class="section-title"><span>EXPERIENCE</span></h2>
+                <div class="experience-timeline">
+                    <!-- Experience 1 -->
+                    <div class="experience-item reveal">
+                        <div class="exp-header">
+                            <div class="exp-role">
+                                <span class="accent-text">SSL WIRELESS</span>
+                                <h3>Software Specialist</h3>
+                            </div>
+                            <span class="exp-date tech-font">01/09/24 — PRESENT</span>
+                        </div>
+                    </div>
+
+                    <!-- Experience 2 -->
+                    <div class="experience-item reveal">
+                        <div class="exp-header">
+                            <div class="exp-role">
+                                <span class="accent-text">COMPUTER EASE LTD.</span>
+                                <h3>Android Programmer</h3>
+                            </div>
+                            <span class="exp-date tech-font">01/05/23 — 30/08/24</span>
+                        </div>
+                    </div>
+
+                    <!-- Experience 3 -->
+                    <div class="experience-item reveal">
+                        <div class="exp-header">
+                            <div class="exp-role">
+                                <span class="accent-text">AVENTRA CONSULTANT</span>
+                                <h3>Software Engineer</h3>
+                            </div>
+                            <span class="exp-date tech-font">27/03/22 — 30/04/23</span>
+                        </div>
+                    </div>
+
+                    <!-- Experience 4 -->
+                    <div class="experience-item reveal">
+                        <div class="exp-header">
+                            <div class="exp-role">
+                                <span class="accent-text">DECODE LAB</span>
+                                <h3>Android Developer</h3>
+                            </div>
+                            <span class="exp-date tech-font">04/02/21 — 24/03/22</span>
+                        </div>
+                    </div>
+                </div>
+                </ul>
+            </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2 class="section-title"><span>PROJECTS</span></h2>
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card reveal">
+                        <div class="project-img-placeholder">
+                            <img src="assets/mybkb.png" alt="myBKB Banking">
+                        </div>
+                        <div class="project-info">
+                            <h3>myBKB Banking</h3>
+                            <p>A flagship mobile banking solution for Bangladesh Krishi Bank. Developed with Flutter,
+                                featuring secure transaction processing, real-time balance inquiries, and SSL Wireless
+                                integration.</p>
+                            <div class="project-tech">
+                                <span>Flutter</span>
+                                <span>Dart</span>
+                                <span>SSL Wireless</span>
+                                <span>Fintech</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card reveal">
+                        <div class="project-img-placeholder">
+                            <img src="assets/dyuty.png" alt="Dyuty (Unilever)">
+                        </div>
+                        <div class="project-info">
+                            <h3>Dyuty (Unilever)</h3>
+                            <p>A native Android application developed to empower rural women by enabling efficient B2C
+                                sales. Designed for offline use, it allows users to manage customers, stock, sales, and
+                                synchronize data periodically. Featuring E-Learning modules and integrated survey tools.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Kotlin</span>
+                                <span class="tech-tag">MVVM</span>
+                                <span class="tech-tag">Coroutines</span>
+                                <span class="tech-tag">Room</span>
+                                <span class="tech-tag">Hilt</span>
+                                <span class="tech-tag">Retrofit</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card reveal">
+                        <div class="project-img-placeholder">
+                            <img src="assets/diganta.png" alt="Diganta (Unilever)">
+                        </div>
+                        <div class="project-info">
+                            <h3>Diganta (Unilever)</h3>
+                            <p>An Android app developed for Unilever's sub-distributors (Pallydut) to simplify and
+                                digitize daily operations. Features include primary orders, stock management, and
+                                delivery tracking with full offline synchronization capability.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Kotlin</span>
+                                <span class="tech-tag">Coroutines</span>
+                                <span class="tech-tag">Room Database</span>
+                                <span class="tech-tag">Retrofit</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card reveal">
+                        <div class="project-img-placeholder">
+                            <img src="assets/ongikar.png" alt="Ongikar (Coca-Cola AML)">
+                        </div>
+                        <div class="project-info">
+                            <h3>Ongikar</h3>
+                            <p>This is a sales and distribution application which is currently using by Coca-Cola(AML)
+                                for their daily sales and distribution.</p>
+                            <div class="project-tech">
+                                <span>Android</span>
+                                <span>Java</span>
+                                <span>MVVM</span>
+                                <span>SQLite</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="project-card reveal">
+                        <div class="project-img-placeholder">
+                            <img src="https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?auto=format&fit=crop&q=80&w=1200"
+                                alt="Tingtong App">
+                        </div>
+                        <div class="project-info">
+                            <h3>Tingtong App</h3>
+                            <p>A dynamic social e-commerce platform blending community engagement with seamless shopping
+                                experiences. Prioritizes low-latency interactions and high-performance image loading.
+                            </p>
+                            <div class="project-tech">
+                                <span>Android</span>
+                                <span>Kotlin</span>
+                                <span>Social Commerce</span>
+                                <span>Firebase</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <h2 class="section-title"><span>SKILLS</span></h2>
+                <div class="skills-grid">
+                    <!-- Skills content remains same -->
+                    <div class="skill-category glass-card reveal">
+                        <div class="category-header">
+                            <i data-lucide="smartphone"></i>
+                            <h3>Mobile Development</h3>
+                        </div>
+                        <div class="tech-tags-chips">
+                            <span>Android (Kotlin/Java)</span>
+                            <span>Hilt / Retrofit / Room</span>
+                            <span>Coroutines / WorkManager</span>
+                            <span>MVVM / Clean Architecture</span>
+                            <span>Jetpack Compose</span>
+                            <span>NDK / JNI</span>
+                        </div>
+                    </div>
+                    <div class="skill-category glass-card reveal">
+                        <div class="category-header">
+                            <i data-lucide="layers"></i>
+                            <h3>Cross-Platform</h3>
+                        </div>
+                        <div class="tech-tags-chips">
+                            <span>Flutter & Dart</span>
+                            <span>Provider / BLoC / Riverpod</span>
+                            <span>State Management</span>
+                            <span>Method Channels</span>
+                            <span>Responsive UI</span>
+                            <span>Animation</span>
+                        </div>
+                    </div>
+                    <div class="skill-category glass-card reveal">
+                        <div class="category-header">
+                            <i data-lucide="server"></i>
+                            <h3>Backend & APIs</h3>
+                        </div>
+                        <div class="tech-tags-chips">
+                            <span>RESTful APIs</span>
+                            <span>JSON / XML</span>
+                            <span>Firebase (Auth, DB)</span>
+                            <span>Cloud Functions</span>
+                            <span>WebSockets</span>
+                            <span>Dagger / Koin</span>
+                        </div>
+                    </div>
+                    <div class="skill-category glass-card reveal">
+                        <div class="category-header">
+                            <i data-lucide="settings"></i>
+                            <h3>Tools & Others</h3>
+                        </div>
+                        <div class="tech-tags-chips">
+                            <span>GitHub / GitLab</span>
+                            <span>Postman</span>
+                            <span>SQLite / Realm / Hive</span>
+                            <span>Unit Testing</span>
+                            <span>Architecture Design</span>
+                            <span>Optimization</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="education-section">
+            <div class="container">
+                <h2 class="section-title"><span>EDUCATION</span></h2>
+                <div class="skills-grid">
+                    <div class="experience-item glass-card reveal">
+                        <div class="exp-header" style="margin-bottom: 0.5rem;">
+                            <div class="exp-role">
+                                <h3>B.Sc In Software Engineering</h3>
+                                <span class="tech-font accent-text">Daffodil International University</span>
+                            </div>
+                            <span class="exp-date tech-font">2015 — 2020</span>
+                        </div>
+                    </div>
+                    <div class="experience-item glass-card reveal">
+                        <div class="exp-header" style="margin-bottom: 0.5rem;">
+                            <div class="exp-role">
+                                <h3>Professional Android Development</h3>
+                                <span class="tech-font accent-text">Basis Information & Technology Management
+                                    (BITM)</span>
+                            </div>
+                            <span class="exp-date tech-font">2019 — 2020</span>
+                        </div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                            Certificate: https://drive.google.com/certificate/</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title reveal">Get In Touch</h2>
+                <div class="contact-content">
+                    <div class="contact-info reveal">
+                        <p>Looking for a specialized mobile developer for your next project? Let's discuss how I can
+                            help you build something amazing.</p>
+                        <div class="contact-details">
+                            <div class="detail-item">
+                                <i data-lucide="mail"></i>
+                                <span>swemonjur@gmail.com</span>
+                            </div>
+                            <div class="detail-item">
+                                <i data-lucide="phone"></i>
+                                <span>+880 1568085234</span>
+                            </div>
+                            <div class="detail-item">
+                                <i data-lucide="map-pin"></i>
+                                <span>Dhaka, Bangladesh</span>
+                            </div>
+                        </div>
+                    </div>
+                    <form id="contact-form" class="glass-card reveal">
+                        <div class="form-group">
+                            <input type="text" placeholder="Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo tech-font accent-text">MONJUR.</div>
+                <div class="social-links">
+                    <a href="#"><i data-lucide="github"></i></a>
+                    <a href="#"><i data-lucide="linkedin"></i></a>
+                    <a href="#"><i data-lucide="twitter"></i></a>
+                </div>
+                <p>&copy; 2024 Monjur. Built with Passion & Code.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Inlined Script for Tajmirul Style -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Lucide Icons
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+
+            // --- Custom Triangle Cursor ---
+            const cursor = document.getElementById('cursor');
+            if (cursor) {
+                document.addEventListener('mousemove', (e) => {
+                    cursor.style.left = `${e.clientX}px`;
+                    cursor.style.top = `${e.clientY}px`;
+                });
+
+                // Hover Effect for interactive elements
+                const activeElements = document.querySelectorAll('a, button, .project-card, .experience-item');
+                activeElements.forEach(el => {
+                    el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
+                    el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
+                });
+            }
+
+            // --- Floating Particles Effect ---
+            const initParticles = () => {
+                const bgContainer = document.querySelector('.background-blobs');
+                if (!bgContainer) return;
+
+                const canvas = document.createElement('canvas');
+                canvas.id = 'particle-canvas';
+                bgContainer.innerHTML = ''; // Clear blobs
+                bgContainer.appendChild(canvas);
+
+                const ctx = canvas.getContext('2d');
+                let particles = [];
+                let width, height;
+
+                const resize = () => {
+                    width = canvas.width = window.innerWidth;
+                    height = canvas.height = window.innerHeight;
+                };
+
+                window.addEventListener('resize', resize);
+                resize();
+
+                class Particle {
+                    constructor() {
+                        this.reset();
+                    }
+
+                    reset() {
+                        this.x = Math.random() * width;
+                        this.y = Math.random() * height;
+                        this.size = Math.random() * 1.5 + 0.5;
+                        this.speedX = Math.random() * 0.5 - 0.25;
+                        this.speedY = Math.random() * 0.5 - 0.25;
+                        this.opacity = Math.random() * 0.3 + 0.1;
+                    }
+
+                    update() {
+                        this.x += this.speedX;
+                        this.y += this.speedY;
+
+                        if (this.x < 0) this.x = width;
+                        if (this.x > width) this.x = 0;
+                        if (this.y < 0) this.y = height;
+                        if (this.y > height) this.y = 0;
+                    }
+
+                    draw() {
+                        ctx.fillStyle = `rgba(222, 222, 222, ${this.opacity})`;
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                }
+
+                for (let i = 0; i < 100; i++) {
+                    particles.push(new Particle());
+                }
+
+                const animate = () => {
+                    ctx.clearRect(0, 0, width, height);
+                    particles.forEach(p => {
+                        p.update();
+                        p.draw();
+                    });
+                    requestAnimationFrame(animate);
+                };
+
+                animate();
+            };
+
+            initParticles();
+
+            // --- Scroll Reveal Animation ---
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealOnScroll = () => {
+                revealElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight * 0.85) {
+                        el.classList.add('active');
+                    }
+                });
+            };
+
+            // --- Navbar Scrolling Reveal ---
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll();
+
+            // --- Smooth Scrolling ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
