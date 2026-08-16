@@ -1,587 +1,1370 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monjur E Mowla - Mobile Application Developer Portfolio</title>
-    <meta name="description"
-        content="Monjur E Mowla - Experienced Mobile Application Developer specializing in Android (Kotlin/Java) and Flutter (Dart).">
-    <link rel="stylesheet" href="style.css">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Monjur E Mowla — Mobile Application Developer</title>
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #0A2340;
+    --bg-panel: #102D51;
+    --bg-panel-raised: #16375F;
+    --grid-line: #2B577F;
+    --grid-line-soft: #1A3D63;
+    --ink: #F3F8FF;
+    --ink-secondary: #B7CCE6;
+    --ink-faint: #7E9BC2;
+    --accent: #BC7D4E;
+    --accent-strong: #C7936B;
+    --on-accent: #0A2340;
+    --border: #2B577F;
+    --radius-sharp: 2px;
+    --radius-device: 14px;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-12: 48px;
+    --space-16: 64px;
+    --space-24: 96px;
+    --font-display: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", "Roboto Mono", Menlo, Consolas, monospace;
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.25rem;
+    --text-xl: 1.5625rem;
+    --text-2xl: 1.953rem;
+    --text-3xl: 2.441rem;
+    --text-4xl: 3.052rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0A2340;
+      --bg-panel: #102D51;
+      --bg-panel-raised: #16375F;
+      --grid-line: #2B577F;
+      --grid-line-soft: #1A3D63;
+      --ink: #F3F8FF;
+      --ink-secondary: #B7CCE6;
+      --ink-faint: #7E9BC2;
+      --accent: #BC7D4E;
+      --accent-strong: #C7936B;
+      --on-accent: #0A2340;
+      --border: #2B577F;
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: light;
+      --bg: #F1F6FC;
+      --bg-panel: #E3ECF7;
+      --bg-panel-raised: #D5E2F1;
+      --grid-line: #B9CBE3;
+      --grid-line-soft: #CBD9EC;
+      --ink: #0A2340;
+      --ink-secondary: #3C5A80;
+      --ink-faint: #5F7EA3;
+      --accent: #7E4F30;
+      --accent-strong: #604824;
+      --on-accent: #FFFFFF;
+      --border: #B9CBE3;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #0A2340;
+    --bg-panel: #102D51;
+    --bg-panel-raised: #16375F;
+    --grid-line: #2B577F;
+    --grid-line-soft: #1A3D63;
+    --ink: #F3F8FF;
+    --ink-secondary: #B7CCE6;
+    --ink-faint: #7E9BC2;
+    --accent: #BC7D4E;
+    --accent-strong: #C7936B;
+    --on-accent: #0A2340;
+    --border: #2B577F;
+  }
+
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --bg: #F1F6FC;
+    --bg-panel: #E3ECF7;
+    --bg-panel-raised: #D5E2F1;
+    --grid-line: #B9CBE3;
+    --grid-line-soft: #CBD9EC;
+    --ink: #0A2340;
+    --ink-secondary: #3C5A80;
+    --ink-faint: #5F7EA3;
+    --accent: #7E4F30;
+    --accent-strong: #604824;
+    --on-accent: #FFFFFF;
+    --border: #B9CBE3;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    background-image:
+      linear-gradient(color-mix(in srgb, var(--grid-line-soft) 45%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--grid-line-soft) 45%, transparent) 1px, transparent 1px);
+    background-size: 32px 32px;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; }
+  p { margin: 0; max-width: 62ch; }
+
+  a { color: inherit; }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: var(--space-4);
+    top: -60px;
+    background: var(--accent);
+    color: var(--on-accent);
+    padding: var(--space-2) var(--space-4);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-decoration: none;
+    z-index: 200;
+    transition: top .2s ease-out;
+  }
+  .skip-link:focus { top: var(--space-4); }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.04em;
+    color: var(--ink-secondary);
+    border: 1px solid var(--border);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sharp);
+    background: var(--bg-panel);
+    white-space: nowrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    min-height: 48px;
+    padding: 0 var(--space-6);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: var(--radius-sharp);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform .15s ease-out, background .15s ease-out, border-color .15s ease-out;
+  }
+  @media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
+  .btn-primary { background: var(--accent); color: var(--on-accent); }
+  .btn-primary:hover { background: var(--accent-strong); transform: translateY(-1px); }
+  .btn-outline { background: transparent; color: var(--ink); border-color: var(--border); }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ---------- layout shell ---------- */
+
+  .ruler {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 88px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-6);
+    border-right: 1px solid var(--border);
+    background: color-mix(in srgb, var(--bg-panel) 55%, transparent);
+    backdrop-filter: blur(2px);
+    z-index: 40;
+  }
+  @media (min-width: 1180px) { .ruler { display: flex; } }
+
+  .ruler-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-6); }
+  .ruler-item a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+    text-decoration: none;
+    color: var(--ink-faint);
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.08em;
+    writing-mode: vertical-rl;
+    padding: var(--space-2);
+  }
+  .ruler-item a::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    border: 1px solid var(--ink-faint);
+    writing-mode: horizontal-tb;
+  }
+  .ruler-item a[aria-current="true"] { color: var(--accent); }
+  .ruler-item a[aria-current="true"]::before { background: var(--accent); border-color: var(--accent); }
+  .ruler-item a:hover { color: var(--accent); }
+
+  header.site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4) var(--space-6);
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    text-decoration: none;
+    color: var(--ink);
+    font-family: var(--font-mono);
+  }
+  .logo strong { font-size: var(--text-lg); letter-spacing: 0.02em; }
+  .logo span { font-size: var(--text-xs); color: var(--accent); }
+
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sharp);
+    color: var(--ink);
+    cursor: pointer;
+  }
+  @media (min-width: 1180px) { .nav-toggle { display: none; } }
+  .nav-toggle svg { width: 20px; height: 20px; }
+
+  .mobile-panel {
+    position: fixed;
+    inset: 0 0 0 auto;
+    width: min(320px, 84vw);
+    background: var(--bg-panel);
+    border-left: 1px solid var(--border);
+    z-index: 110;
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    transform: translateX(100%);
+    transition: transform .28s ease-out;
+  }
+  @media (prefers-reduced-motion: reduce) { .mobile-panel { transition: none; } }
+  .mobile-panel[data-open="true"] { transform: translateX(0); }
+  .mobile-panel a {
+    text-decoration: none;
+    color: var(--ink-secondary);
+    font-family: var(--font-mono);
+    font-size: var(--text-lg);
+    padding: var(--space-2) 0;
+    display: block;
+    min-height: 44px;
+  }
+  .mobile-panel a:hover { color: var(--accent); }
+  .scrim {
+    position: fixed;
+    inset: 0;
+    background: rgba(6, 16, 30, 0.55);
+    z-index: 105;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .28s ease-out;
+  }
+  @media (prefers-reduced-motion: reduce) { .scrim { transition: none; } }
+  .scrim[data-open="true"] { opacity: 1; pointer-events: auto; }
+
+  main { display: block; }
+
+  .sheet {
+    position: relative;
+    padding: var(--space-24) var(--space-6) var(--space-16);
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  .sheet-head {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-4);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: var(--space-4);
+    margin-bottom: var(--space-12);
+  }
+  .sheet-head .sheet-no {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--ink-faint);
+  }
+  .sheet-head h2 {
+    font-size: var(--text-3xl);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+  }
+
+  .reveal { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .6s ease-out, transform .6s ease-out;
+    }
+    .reveal.is-visible { opacity: 1; transform: none; }
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .scroll-progress {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 2px;
+    width: 0%;
+    background: var(--accent);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll-progress { transition: width .12s linear; }
+  }
+
+  .type-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 0.9em;
+    background: var(--accent);
+    margin-left: 2px;
+    vertical-align: -0.1em;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .type-cursor { animation: caret-blink 1s steps(1) infinite; }
+  }
+  @keyframes caret-blink { 50% { opacity: 0; } }
+
+  .live-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-right: var(--space-2);
+    vertical-align: middle;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .live-dot { animation: live-pulse 1.8s ease-in-out infinite; }
+  }
+  @keyframes live-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.7); } }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .stagger .stat,
+    .stagger .tag,
+    .stagger .project-card,
+    .stagger .bom-list li,
+    .stagger .contact-line,
+    .stagger .field,
+    .stagger .title-block-row,
+    .stagger .btn,
+    .stagger .icon-link {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .5s ease-out, transform .5s ease-out;
+    }
+    .stagger .rev-row,
+    .stagger .edu-row {
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path .55s ease-out;
+    }
+    .stagger.is-visible .stat,
+    .stagger.is-visible .tag,
+    .stagger.is-visible .project-card,
+    .stagger.is-visible .bom-list li,
+    .stagger.is-visible .contact-line,
+    .stagger.is-visible .field,
+    .stagger.is-visible .title-block-row,
+    .stagger.is-visible .btn,
+    .stagger.is-visible .icon-link {
+      opacity: 1;
+      transform: none;
+    }
+    .stagger.is-visible .rev-row,
+    .stagger.is-visible .edu-row {
+      clip-path: inset(0 0 0 0);
+    }
+    .stagger.is-visible .stat:nth-of-type(1), .stagger.is-visible .tag:nth-of-type(1), .stagger.is-visible .rev-row:nth-of-type(1), .stagger.is-visible .project-card:nth-of-type(1), .stagger.is-visible .bom-list li:nth-of-type(1), .stagger.is-visible .edu-row:nth-of-type(1), .stagger.is-visible .contact-line:nth-of-type(1), .stagger.is-visible .field:nth-of-type(1), .stagger.is-visible .title-block-row:nth-of-type(1), .stagger.is-visible .btn:nth-of-type(1), .stagger.is-visible .icon-link:nth-of-type(1) { transition-delay: 0ms; }
+    .stagger.is-visible .stat:nth-of-type(2), .stagger.is-visible .tag:nth-of-type(2), .stagger.is-visible .rev-row:nth-of-type(2), .stagger.is-visible .project-card:nth-of-type(2), .stagger.is-visible .bom-list li:nth-of-type(2), .stagger.is-visible .edu-row:nth-of-type(2), .stagger.is-visible .contact-line:nth-of-type(2), .stagger.is-visible .field:nth-of-type(2), .stagger.is-visible .title-block-row:nth-of-type(2), .stagger.is-visible .btn:nth-of-type(2), .stagger.is-visible .icon-link:nth-of-type(2) { transition-delay: 70ms; }
+    .stagger.is-visible .stat:nth-of-type(3), .stagger.is-visible .tag:nth-of-type(3), .stagger.is-visible .rev-row:nth-of-type(3), .stagger.is-visible .project-card:nth-of-type(3), .stagger.is-visible .bom-list li:nth-of-type(3), .stagger.is-visible .contact-line:nth-of-type(3), .stagger.is-visible .field:nth-of-type(3), .stagger.is-visible .title-block-row:nth-of-type(3), .stagger.is-visible .icon-link:nth-of-type(3) { transition-delay: 140ms; }
+    .stagger.is-visible .tag:nth-of-type(4), .stagger.is-visible .rev-row:nth-of-type(4), .stagger.is-visible .project-card:nth-of-type(4), .stagger.is-visible .bom-list li:nth-of-type(4), .stagger.is-visible .title-block-row:nth-of-type(4), .stagger.is-visible .icon-link:nth-of-type(4) { transition-delay: 210ms; }
+    .stagger.is-visible .tag:nth-of-type(5), .stagger.is-visible .project-card:nth-of-type(5), .stagger.is-visible .bom-list li:nth-of-type(5), .stagger.is-visible .title-block-row:nth-of-type(5) { transition-delay: 280ms; }
+    .stagger.is-visible .tag:nth-of-type(6), .stagger.is-visible .bom-list li:nth-of-type(6), .stagger.is-visible .title-block-row:nth-of-type(6) { transition-delay: 350ms; }
+    .stagger.is-visible .project-card:nth-of-type(6) { transition-delay: 350ms; }
+    .stagger.is-visible .project-card:nth-of-type(7) { transition-delay: 420ms; }
+    .stagger.is-visible .project-card:nth-of-type(8) { transition-delay: 490ms; }
+    .stagger.is-visible .project-card:nth-of-type(9) { transition-delay: 560ms; }
+
+    .stagger .contact-line svg * { stroke-dasharray: 100; stroke-dashoffset: 100; transition: stroke-dashoffset .7s ease-out; }
+    .stagger.is-visible .contact-line svg * { stroke-dashoffset: 0; }
+  }
+
+  /* ---------- hero ---------- */
+
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--space-16) var(--space-6) var(--space-12);
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .hero-crosshairs { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+  .crosshair {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+  }
+  .crosshair::before, .crosshair::after {
+    content: "";
+    position: absolute;
+    background: var(--grid-line);
+  }
+  .crosshair::before { width: 100%; height: 1px; top: 50%; }
+  .crosshair::after { height: 100%; width: 1px; left: 50%; }
+  @media (prefers-reduced-motion: no-preference) {
+    .crosshair { animation: crosshair-in .9s ease-out both; }
+  }
+  @keyframes crosshair-in { from { opacity: 0; transform: scale(0.4); } to { opacity: 1; transform: scale(1); } }
+
+  .hero-eyebrow { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-6); }
+  .hero-eyebrow .rule { width: 40px; height: 1px; background: var(--accent); }
+
+  .hero h1 {
+    font-size: clamp(2.75rem, 8vw, 6.2rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    line-height: 0.98;
+    margin-bottom: var(--space-4);
+  }
+
+  .hero .role {
+    font-family: var(--font-mono);
+    font-size: var(--text-lg);
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    margin-bottom: var(--space-6);
+  }
+
+  .hero .lede { color: var(--ink-secondary); font-size: var(--text-lg); line-height: 1.55; margin-bottom: var(--space-8); }
+
+  .hero-actions { display: flex; flex-wrap: wrap; gap: var(--space-4); margin-bottom: var(--space-16); }
+
+  .social-row { display: flex; gap: var(--space-3); }
+  .icon-link {
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sharp);
+    color: var(--ink-secondary);
+    text-decoration: none;
+  }
+  .icon-link svg { width: 18px; height: 18px; }
+  .icon-link:hover { border-color: var(--accent); color: var(--accent); }
+
+  .title-block {
+    align-self: flex-start;
+    border: 1px solid var(--border);
+    background: color-mix(in srgb, var(--bg-panel) 70%, transparent);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    width: min(420px, 100%);
+  }
+  .title-block-row { display: grid; grid-template-columns: 110px 1fr; border-top: 1px solid var(--border); }
+  .title-block-row:first-child { border-top: none; }
+  .title-block-row dt { padding: var(--space-2) var(--space-3); color: var(--ink-faint); border-right: 1px solid var(--border); letter-spacing: 0.06em; }
+  .title-block-row dd { margin: 0; padding: var(--space-2) var(--space-3); color: var(--ink); }
+  .title-block dl { margin: 0; }
+
+  /* ---------- about ---------- */
+
+  .about-grid { display: grid; gap: var(--space-12); }
+  @media (min-width: 900px) { .about-grid { grid-template-columns: 1.1fr 0.9fr; } }
+
+  .about-copy p + p { margin-top: var(--space-4); }
+  .about-copy { color: var(--ink-secondary); font-size: var(--text-base); }
+
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--border);
+    margin-top: var(--space-8);
+  }
+  .stat {
+    padding: var(--space-4);
+    border-left: 1px solid var(--border);
+    text-align: left;
+  }
+  .stat:first-child { border-left: none; }
+  .stat b {
+    display: block;
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: var(--text-2xl);
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .stat span { font-size: var(--text-xs); color: var(--ink-faint); letter-spacing: 0.05em; text-transform: uppercase; }
+
+  .philosophy-panel {
+    border: 1px solid var(--border);
+    background: var(--bg-panel);
+    padding: var(--space-6);
+  }
+  .philosophy-panel h3 { font-size: var(--text-lg); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: var(--space-3); }
+  .philosophy-panel p { color: var(--ink-secondary); margin-bottom: var(--space-4); }
+  .chip-row { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+
+  /* ---------- experience ---------- */
+
+  .rev-table { border: 1px solid var(--border); }
+  .rev-row {
+    display: grid;
+    grid-template-columns: 72px 1fr auto;
+    gap: var(--space-4);
+    align-items: center;
+    padding: var(--space-4);
+    border-top: 1px solid var(--border);
+  }
+  .rev-row:first-child { border-top: none; }
+  .rev-badge {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--accent);
+    border: 1px solid var(--border);
+    text-align: center;
+    padding: var(--space-2) 0;
+  }
+  .rev-role { font-weight: 700; font-size: var(--text-base); }
+  .rev-company { color: var(--ink-secondary); font-size: var(--text-sm); font-family: var(--font-mono); }
+  .rev-dates { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--ink-faint); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .rev-current .rev-badge { background: var(--accent); color: var(--on-accent); }
+
+  @media (max-width: 620px) {
+    .rev-row { grid-template-columns: 56px 1fr; }
+    .rev-dates { grid-column: 2; }
+  }
+
+  /* ---------- projects ---------- */
+
+  .project-grid { display: grid; gap: var(--space-8); grid-template-columns: 1fr; }
+  @media (min-width: 700px) { .project-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  .project-card {
+    border: 1px solid var(--border);
+    background: var(--bg-panel);
+    display: flex;
+    flex-direction: column;
+    transition: border-color .2s ease-out;
+  }
+  @media (prefers-reduced-motion: reduce) { .project-card { transition: none; } }
+  .project-card:hover, .project-card:focus-within { border-color: var(--accent); }
+  .project-card-extra { display: none; }
+  .project-grid.is-expanded .project-card-extra { display: flex; }
+  .project-toggle { margin-top: var(--space-8); }
+
+  .project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--ink-faint);
+    letter-spacing: 0.06em;
+  }
+
+  .project-media {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-panel-raised);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .project-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .project-media-contain {
+    background: var(--bg-panel-raised);
+    padding: var(--space-4) 0;
+  }
+  .project-media-contain .phone-frame {
+    box-sizing: border-box;
+    height: 100%;
+    max-width: 100%;
+    display: inline-flex;
+    border: 7px solid #14181f;
+    border-radius: 26px;
+    box-shadow: 0 0 0 1px var(--grid-line), 0 14px 34px rgba(0, 0, 0, .45);
+    overflow: hidden;
+    background: #000;
+  }
+  .project-media-contain .phone-frame img {
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .project-media-placeholder {
+    background-image: repeating-linear-gradient(135deg, var(--grid-line-soft) 0, var(--grid-line-soft) 1px, transparent 1px, transparent 12px);
+  }
+
+  .project-body { padding: var(--space-4); flex: 1; }
+
+  .device {
+    flex: none;
+    width: 84px;
+    height: 156px;
+    border: 2px solid var(--grid-line);
+    border-radius: var(--radius-device);
+    position: relative;
+    padding: var(--space-2) var(--space-1);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+  }
+  .device::before {
+    content: "";
+    width: 24px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--grid-line);
+    margin-bottom: 4px;
+  }
+  .device i { display: block; height: 3px; border-radius: 2px; background: var(--grid-line-soft); width: 100%; }
+  .device i:nth-child(2) { width: 70%; }
+  .device i:nth-child(4) { width: 55%; }
+  @media (prefers-reduced-motion: no-preference) {
+    .device i { width: 0; transition: width .5s ease-out .3s; }
+    .device i:nth-child(2) { width: 0; }
+    .device i:nth-child(4) { width: 0; }
+    .project-grid.is-visible .device i { width: 100%; }
+    .project-grid.is-visible .device i:nth-child(2) { width: 70%; }
+    .project-grid.is-visible .device i:nth-child(4) { width: 55%; }
+
+    .device::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      clip-path: inset(0 round var(--radius-device));
+      background: linear-gradient(115deg, transparent 42%, color-mix(in srgb, var(--accent) 30%, transparent) 50%, transparent 58%);
+      transform: translateX(-130%);
+      pointer-events: none;
+    }
+    .project-card:hover .device::after,
+    .project-card:focus-within .device::after {
+      transition: transform .6s ease-out;
+      transform: translateX(130%);
+    }
+  }
+  .project-copy { flex: 1; min-width: 0; }
+  .project-copy h3 { font-size: var(--text-lg); margin-bottom: var(--space-2); }
+  .project-copy p { color: var(--ink-secondary); font-size: var(--text-sm); margin-bottom: var(--space-3); }
+
+  .project-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); padding: 0 var(--space-4) var(--space-4); }
+
+  /* ---------- skills ---------- */
+
+  .bom-grid { display: grid; gap: var(--space-8); grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .bom-cat h3 {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: var(--space-3);
+  }
+  .bom-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+  .bom-list li { display: flex; align-items: center; gap: var(--space-3); font-size: var(--text-sm); color: var(--ink-secondary); }
+  .bom-list li::before { content: ""; width: 7px; height: 7px; background: var(--accent); flex: none; }
+
+  /* ---------- education ---------- */
+
+  .edu-grid { display: grid; gap: var(--space-4); margin-bottom: var(--space-8); }
+  .edu-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-2);
+    padding: var(--space-4);
+    border: 1px solid var(--border);
+  }
+  .edu-row h3 { font-size: var(--text-base); }
+  .edu-row p { color: var(--ink-secondary); font-size: var(--text-sm); font-family: var(--font-mono); }
+
+  /* ---------- contact ---------- */
+
+  .contact-grid { display: grid; gap: var(--space-12); }
+  @media (min-width: 900px) { .contact-grid { grid-template-columns: 0.8fr 1.2fr; } }
+
+  .contact-info { display: flex; flex-direction: column; gap: var(--space-4); }
+  .contact-info p { color: var(--ink-secondary); margin-bottom: var(--space-2); }
+  .contact-line { display: flex; align-items: center; gap: var(--space-3); font-family: var(--font-mono); font-size: var(--text-sm); }
+  .contact-line svg { width: 18px; height: 18px; color: var(--accent); flex: none; }
+  .contact-line a { text-decoration: none; }
+  .contact-line a:hover { color: var(--accent); }
+
+  form.contact-form { display: flex; flex-direction: column; gap: var(--space-4); }
+  .field { display: flex; flex-direction: column; gap: var(--space-2); }
+  .field label { font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); }
+  .field input, .field textarea {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sharp);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    padding: var(--space-3);
+    min-height: 48px;
+  }
+  .field textarea { min-height: 120px; resize: vertical; }
+  .field input:focus, .field textarea:focus { border-color: var(--accent); }
+  .form-note { font-size: var(--text-xs); color: var(--ink-faint); }
+
+  /* ---------- footer ---------- */
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: var(--space-8) var(--space-6);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-4);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--ink-faint);
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 1180px) {
+    header.site-nav, .sheet, .hero, footer { padding-left: calc(var(--space-16) + 40px); padding-right: var(--space-16); }
+  }
+</style>
 </head>
-
 <body>
-    <!-- Custom Cursor -->
-    <div id="cursor"></div>
 
-    <!-- Background Design Elements -->
-    <div class="background-blobs"></div>
+<a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Background Animation Layer -->
-    <div id="glow-container">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
+<nav class="ruler" aria-label="Section index">
+  <ul class="ruler-list" id="ruler-list">
+    <li class="ruler-item"><a href="#home" data-ruler="home">01 HOME</a></li>
+    <li class="ruler-item"><a href="#about" data-ruler="about">02 ABOUT</a></li>
+    <li class="ruler-item"><a href="#experience" data-ruler="experience">03 EXP</a></li>
+    <li class="ruler-item"><a href="#projects" data-ruler="projects">04 WORK</a></li>
+    <li class="ruler-item"><a href="#skills" data-ruler="skills">05 SKILLS</a></li>
+    <li class="ruler-item"><a href="#education" data-ruler="education">06 EDU</a></li>
+    <li class="ruler-item"><a href="#contact" data-ruler="contact">07 TALK</a></li>
+  </ul>
+</nav>
+
+<header class="site-nav">
+  <a class="logo" href="#home">
+    <strong>MONJUR</strong><span>/01</span>
+  </a>
+  <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-panel" aria-label="Open menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+</header>
+
+<div class="scrim" id="scrim"></div>
+<div class="mobile-panel" id="mobile-panel" aria-hidden="true" inert>
+  <a href="#home" data-nav-mobile="home">Home</a>
+  <a href="#about" data-nav-mobile="about">About</a>
+  <a href="#experience" data-nav-mobile="experience">Experience</a>
+  <a href="#projects" data-nav-mobile="projects">Projects</a>
+  <a href="#skills" data-nav-mobile="skills">Skills</a>
+  <a href="#education" data-nav-mobile="education">Education</a>
+  <a href="#contact" data-nav-mobile="contact">Contact</a>
+</div>
+
+<main id="main">
+  <section class="hero" id="home">
+    <div class="hero-crosshairs" aria-hidden="true">
+      <div class="crosshair" style="top:12%; left:8%; animation-delay:.05s;"></div>
+      <div class="crosshair" style="top:22%; right:14%; animation-delay:.2s;"></div>
+      <div class="crosshair" style="bottom:18%; left:20%; animation-delay:.35s;"></div>
+      <div class="crosshair" style="bottom:30%; right:6%; animation-delay:.5s;"></div>
     </div>
-    <!-- Sidebar Email -->
-    <div class="side-email tech-font">
-        <a href="https://github.com/monjur35" target="_blank" class="side-icon"><i data-lucide="github"></i></a>
-        <a href="https://www.linkedin.com/in/monjuremowla/" target="_blank" class="side-icon"><i
-                data-lucide="linkedin"></i></a>
-        <a href="mailto:swemonjur@gmail.com" class="side-email-text">SWEMONJUR@GMAIL.COM</a>
+
+    <div class="hero-eyebrow">
+      <span class="rule" aria-hidden="true"></span>
+      <span class="eyebrow">Sheet 01 — Home</span>
     </div>
 
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="container nav-content">
-            <div class="logo tech-font accent-text">MONJUR.</div>
-            <ul class="nav-links">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="mobile-toggle">
-                <i data-lucide="menu"></i>
-            </div>
+    <h1>Monjur E<br>Mowla</h1>
+    <p class="role"><span class="sr-only">Mobile Application Developer — Android · Flutter</span><span class="role-typed" aria-hidden="true"></span><span class="type-cursor" aria-hidden="true"></span></p>
+    <p class="lede">5+ years building native Android (Kotlin, Java) and Flutter apps for fintech, B2B distribution, e-commerce, and social platforms — architecture-first, performance-obsessed, shipped to 100K+ users.</p>
+
+    <div class="hero-actions stagger">
+      <a class="btn btn-primary" href="#contact">Start a project</a>
+      <a class="btn btn-outline" href="#projects">View the work</a>
+    </div>
+
+    <div class="social-row stagger" style="margin-bottom: var(--space-12);" aria-label="Social links">
+      <a class="icon-link" href="https://www.linkedin.com/in/monjuremowla/" aria-label="LinkedIn profile" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zM8.5 8.5h3.83v1.98h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.72c0-1.6-.03-3.66-2.23-3.66-2.24 0-2.58 1.75-2.58 3.55V23h-4V8.5z"/></svg>
+      </a>
+      <a class="icon-link" href="https://github.com/monjur35" aria-label="GitHub profile" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55v-2.1c-3.16.69-3.83-1.36-3.83-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.67 1.25 3.32.96.1-.74.4-1.25.72-1.54-2.52-.29-5.17-1.26-5.17-5.62 0-1.24.44-2.26 1.17-3.05-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 5.72 0c2.18-1.48 3.14-1.17 3.14-1.17.62 1.57.23 2.73.11 3.02.73.79 1.17 1.81 1.17 3.05 0 4.37-2.66 5.33-5.19 5.61.41.35.77 1.04.77 2.1v3.11c0 .3.2.66.79.55A10.53 10.53 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+      </a>
+      <a class="icon-link" href="mailto:swemonjur@gmail.com" aria-label="Send an email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m2 6 10 7 10-7"></path></svg>
+      </a>
+      <a class="icon-link" href="tel:+8801836879789" aria-label="Call phone number">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.9 2z"></path></svg>
+      </a>
+    </div>
+
+    <dl class="title-block stagger" aria-label="Drawing title block">
+      <div class="title-block-row"><dt>Drawn by</dt><dd>M. E. Mowla</dd></div>
+      <div class="title-block-row"><dt>Title</dt><dd>Mobile Application Developer</dd></div>
+      <div class="title-block-row"><dt>Scale</dt><dd>1:1 — full stack</dd></div>
+      <div class="title-block-row"><dt>Location</dt><dd>Dhaka, Bangladesh</dd></div>
+      <div class="title-block-row"><dt>Rev</dt><dd>D — 5+ yrs experience</dd></div>
+      <div class="title-block-row"><dt>Sheet</dt><dd>01 of 07</dd></div>
+    </dl>
+  </section>
+
+  <section class="sheet reveal" id="about">
+    <div class="sheet-head"><span class="sheet-no">02</span><h2>About</h2></div>
+    <div class="about-grid">
+      <div class="about-copy">
+        <p>I'm a Mobile Application Developer specializing in Android (Kotlin, Java) and Flutter (Dart). Over 5+ years I've delivered production-grade applications across fintech, B2B, e-commerce, and social platforms — for clients including Bangladesh Krishi Bank, Coca-Cola, Unilever, JTI, and Arla.</p>
+        <p>I build large-scale apps using MVVM and Clean Architecture, backed by Firebase, REST APIs, offline-first features, and native integrations — prioritizing scalability and performance. Along the way I've contributed to technical decisions, mentored teammates, and pushed development standards forward on every team I've joined.</p>
+        <div class="stat-strip stagger">
+          <div class="stat"><b class="count-up" data-to="5" data-suffix="+">0+</b><span>Years exp.</span></div>
+          <div class="stat"><b class="count-up" data-to="20" data-suffix="+">0+</b><span>Major apps</span></div>
+          <div class="stat"><b class="count-up" data-to="100" data-suffix="K+">0K+</b><span>User base</span></div>
         </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero-section">
-            <div class="container hero-content">
-                <div class="hero-text reveal" style="text-align: center; margin: 0 auto;">
-                    <h1 style="display: block; width: 100%;">Monjur E Mowla</h1>
-                    <h3 class="tech-font">Mobile Application Developer</h3>
-                    <p>Mobile Developer with 5+ years of experience in native Android (Kotlin, Java) and Flutter. Expert
-                        in architecture design, performance optimization, and building clean, maintainable code.</p>
-                    <div class="social-hero">
-                        <a href="https://www.linkedin.com/in/monjuremowla/" target="_blank" aria-label="LinkedIn">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                stroke="none">
-                                <path
-                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.896 1.639-1.841 3.373-1.841 3.612 0 4.279 2.378 4.279 5.474v6.258zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z" />
-                            </svg>
-                        </a>
-                        <a href="https://github.com/monjur35" target="_blank" aria-label="GitHub">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                stroke="none">
-                                <path
-                                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.01-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-                            </svg>
-                        </a>
-                        <a href="mailto:swemonjur@gmail.com"><i data-lucide="mail"></i></a>
-                        <a href="tel:+8801568085234"><i data-lucide="phone"></i></a>
-                    </div>
-
-                </div>
-                <div class="hero-visual reveal">
-                    <!-- Placeholder for tech-themed visual or Lottie animation -->
-                    <div class="tech-orb">
-                        <div class="orb-inner"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="about-section">
-            <div class="container">
-                <h2 class="section-title"><span>ABOUT ME</span></h2>
-                <div class="about-grid">
-                    <div class="about-info reveal">
-                        <p>I am a dedicated Mobile Application Developer specializing in <strong>Android (Kotlin,
-                                Java)</strong> and <strong>Flutter (Dart)</strong>. With over 5 years in the industry, I
-                            have delivered high-quality applications across multiple domains including <strong>Fintech,
-                                B2B, eCommerce,</strong> and <strong>Social Media</strong>.</p>
-                        <p>Experienced in building <strong>large-scale applications</strong> using <strong>MVVM</strong>
-                            and <strong>Clean Architecture</strong>, I prioritize scalability and performance. I have
-                            contributed to technical decisions, mentored team members, and continuously improved
-                            development standards for market-leading brands.</p>
-                        <div class="about-stats">
-                            <div class="stat-item glass-card">
-                                <h3>5+</h3>
-                                <p>Years Exp.</p>
-                            </div>
-                            <div class="stat-item glass-card">
-                                <h3>10+</h3>
-                                <p>Major Apps</p>
-                            </div>
-                            <div class="stat-item glass-card">
-                                <h3>100k+</h3>
-                                <p>User Base</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="about-tech-list reveal">
-                        <h4 class="tech-font">Core Philosophy</h4>
-                        <p>I believe in <strong>Clean Code</strong>, robust <strong>Architecture</strong>, and constant
-                            <strong>Learning</strong>. My approach balances rapid delivery with long-term
-                            maintainability, ensuring every line of code serves both the user and the business.
-                        </p>
-                        <div class="tech-tags" style="margin-top: 2rem;">
-                            <span>Clean Architecture</span>
-                            <span>MVVM</span>
-                            <span>Unit Testing</span>
-                            <span>CI/CD</span>
-                            <span>Performance Optimization</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience" class="experience-section">
-            <div class="container">
-                <h2 class="section-title"><span>EXPERIENCE</span></h2>
-                <div class="experience-timeline">
-                    <!-- Experience 1 -->
-                    <div class="experience-item reveal">
-                        <div class="exp-header">
-                            <div class="exp-role">
-                                <span class="accent-text">SSL WIRELESS</span>
-                                <h3>Software Specialist</h3>
-                            </div>
-                            <span class="exp-date tech-font">01/09/24 — PRESENT</span>
-                        </div>
-                    </div>
-
-                    <!-- Experience 2 -->
-                    <div class="experience-item reveal">
-                        <div class="exp-header">
-                            <div class="exp-role">
-                                <span class="accent-text">COMPUTER EASE LTD.</span>
-                                <h3>Programmer Analyst</h3>
-                            </div>
-                            <span class="exp-date tech-font">01/05/23 — 30/08/24</span>
-                        </div>
-                    </div>
-
-                    <!-- Experience 3 -->
-                    <div class="experience-item reveal">
-                        <div class="exp-header">
-                            <div class="exp-role">
-                                <span class="accent-text">AVENTRA CONSULTANT</span>
-                                <h3>Software Engineer</h3>
-                            </div>
-                            <span class="exp-date tech-font">27/03/22 — 30/04/23</span>
-                        </div>
-                    </div>
-
-                    <!-- Experience 4 -->
-                    <div class="experience-item reveal">
-                        <div class="exp-header">
-                            <div class="exp-role">
-                                <span class="accent-text">DECODE LAB</span>
-                                <h3>Android Developer</h3>
-                            </div>
-                            <span class="exp-date tech-font">04/02/21 — 24/03/22</span>
-                        </div>
-                    </div>
-                </div>
-                </ul>
-            </div>
-            </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="projects-section">
-            <div class="container">
-                <h2 class="section-title"><span>PROJECTS</span></h2>
-                <div class="projects-grid">
-                    <!-- Project 1 -->
-                    <div class="project-card reveal">
-                        <div class="project-img-placeholder">
-                            <img src="assets/mybkb.png" alt="myBKB Banking">
-                        </div>
-                        <div class="project-info">
-                            <h3>myBKB Banking</h3>
-                            <p>A flagship mobile banking solution for Bangladesh Krishi Bank. Developed with Flutter,
-                                featuring secure transaction processing, real-time balance inquiries, and SSL Wireless
-                                integration.</p>
-                            <div class="project-tech">
-                                <span>Flutter</span>
-                                <span>Dart</span>
-                                <span>SSL Wireless</span>
-                                <span>Fintech</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div class="project-card reveal">
-                        <div class="project-img-placeholder">
-                            <img src="assets/dyuty.png" alt="Dyuty (Unilever)">
-                        </div>
-                        <div class="project-info">
-                            <h3>Dyuty (Unilever)</h3>
-                            <p>A native Android application developed to empower rural women by enabling efficient B2C
-                                sales. Designed for offline use, it allows users to manage customers, stock, sales, and
-                                synchronize data periodically. Featuring E-Learning modules and integrated survey tools.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Kotlin</span>
-                                <span class="tech-tag">MVVM</span>
-                                <span class="tech-tag">Coroutines</span>
-                                <span class="tech-tag">Room</span>
-                                <span class="tech-tag">Hilt</span>
-                                <span class="tech-tag">Retrofit</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="project-card reveal">
-                        <div class="project-img-placeholder">
-                            <img src="assets/diganta.png" alt="Diganta (Unilever)">
-                        </div>
-                        <div class="project-info">
-                            <h3>Diganta (Unilever)</h3>
-                            <p>An Android app developed for Unilever's sub-distributors (Pallydut) to simplify and
-                                digitize daily operations. Features include primary orders, stock management, and
-                                delivery tracking with full offline synchronization capability.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Kotlin</span>
-                                <span class="tech-tag">Coroutines</span>
-                                <span class="tech-tag">Room Database</span>
-                                <span class="tech-tag">Retrofit</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 4 -->
-                    <div class="project-card reveal">
-                        <div class="project-img-placeholder">
-                            <img src="assets/ongikar.png" alt="Ongikar (Coca-Cola AML)">
-                        </div>
-                        <div class="project-info">
-                            <h3>Ongikar</h3>
-                            <p>This is a sales and distribution application which is currently using by Coca-Cola(AML)
-                                for their daily sales and distribution.</p>
-                            <div class="project-tech">
-                                <span>Android</span>
-                                <span>Java</span>
-                                <span>MVVM</span>
-                                <span>SQLite</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 5 -->
-                    <div class="project-card reveal">
-                        <div class="project-img-placeholder">
-                            <img src="https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?auto=format&fit=crop&q=80&w=1200"
-                                alt="Tingtong App">
-                        </div>
-                        <div class="project-info">
-                            <h3>Tingtong App</h3>
-                            <p>A dynamic social e-commerce platform blending community engagement with seamless shopping
-                                experiences. Prioritizes low-latency interactions and high-performance image loading.
-                            </p>
-                            <div class="project-tech">
-                                <span>Android</span>
-                                <span>Kotlin</span>
-                                <span>Social Commerce</span>
-                                <span>Firebase</span>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="skills-section">
-            <div class="container">
-                <h2 class="section-title"><span>SKILLS</span></h2>
-                <div class="skills-grid">
-                    <!-- Skills content remains same -->
-                    <div class="skill-category glass-card reveal">
-                        <div class="category-header">
-                            <i data-lucide="smartphone"></i>
-                            <h3>Mobile Development</h3>
-                        </div>
-                        <div class="tech-tags-chips">
-                            <span>Android (Kotlin/Java)</span>
-                            <span>Hilt / Retrofit / Room</span>
-                            <span>Coroutines / WorkManager</span>
-                            <span>MVVM / Clean Architecture</span>
-                            <span>Jetpack Compose</span>
-                            <span>NDK / JNI</span>
-                        </div>
-                    </div>
-                    <div class="skill-category glass-card reveal">
-                        <div class="category-header">
-                            <i data-lucide="layers"></i>
-                            <h3>Cross-Platform</h3>
-                        </div>
-                        <div class="tech-tags-chips">
-                            <span>Flutter & Dart</span>
-                            <span>Provider / BLoC / Riverpod</span>
-                            <span>State Management</span>
-                            <span>Method Channels</span>
-                            <span>Responsive UI</span>
-                            <span>Animation</span>
-                        </div>
-                    </div>
-                    <div class="skill-category glass-card reveal">
-                        <div class="category-header">
-                            <i data-lucide="server"></i>
-                            <h3>Backend & APIs</h3>
-                        </div>
-                        <div class="tech-tags-chips">
-                            <span>RESTful APIs</span>
-                            <span>JSON / XML</span>
-                            <span>Firebase (Auth, DB)</span>
-                            <span>Cloud Functions</span>
-                            <span>WebSockets</span>
-                            <span>Dagger / Koin</span>
-                        </div>
-                    </div>
-                    <div class="skill-category glass-card reveal">
-                        <div class="category-header">
-                            <i data-lucide="settings"></i>
-                            <h3>Tools & Others</h3>
-                        </div>
-                        <div class="tech-tags-chips">
-                            <span>GitHub / GitLab</span>
-                            <span>Postman</span>
-                            <span>SQLite / Realm / Hive</span>
-                            <span>Unit Testing</span>
-                            <span>Architecture Design</span>
-                            <span>Optimization</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education" class="education-section">
-            <div class="container">
-                <h2 class="section-title"><span>EDUCATION</span></h2>
-                <div class="skills-grid">
-                    <div class="experience-item glass-card reveal">
-                        <div class="exp-header" style="margin-bottom: 0.5rem;">
-                            <div class="exp-role">
-                                <h3>B.Sc In Software Engineering</h3>
-                                <span class="tech-font accent-text">Daffodil International University</span>
-                            </div>
-                            <span class="exp-date tech-font">2015 — 2020</span>
-                        </div>
-                    </div>
-                    <div class="experience-item glass-card reveal">
-                        <div class="exp-header" style="margin-bottom: 0.5rem;">
-                            <div class="exp-role">
-                                <h3>Professional Android Development</h3>
-                                <span class="tech-font accent-text">Basis Information & Technology Management
-                                    (BITM)</span>
-                            </div>
-                            <span class="exp-date tech-font">2019 — 2020</span>
-                        </div>
-                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;">
-                            Certificate: https://drive.google.com/certificate/</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <h2 class="section-title reveal">Get In Touch</h2>
-                <div class="contact-content">
-                    <div class="contact-info reveal">
-                        <p>Looking for a specialized mobile developer for your next project? Let's discuss how I can
-                            help you build something amazing.</p>
-                        <div class="contact-details">
-                            <div class="detail-item">
-                                <i data-lucide="mail"></i>
-                                <span>swemonjur@gmail.com</span>
-                            </div>
-                            <div class="detail-item">
-                                <i data-lucide="phone"></i>
-                                <span>+880 1568085234</span>
-                            </div>
-                            <div class="detail-item">
-                                <i data-lucide="map-pin"></i>
-                                <span>Dhaka, Bangladesh</span>
-                            </div>
-                        </div>
-                    </div>
-                    <form id="contact-form" class="glass-card reveal">
-                        <div class="form-group">
-                            <input type="text" placeholder="Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Email" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Your Message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo tech-font accent-text">MONJUR.</div>
-                <div class="social-links">
-                    <a href="#"><i data-lucide="github"></i></a>
-                    <a href="#"><i data-lucide="linkedin"></i></a>
-                    <a href="#"><i data-lucide="twitter"></i></a>
-                </div>
-                <p>&copy; 2024 Monjur. Built with Passion & Code.</p>
-            </div>
+      </div>
+      <div class="philosophy-panel">
+        <h3>Core philosophy</h3>
+        <p>Clean code, robust architecture, and constant learning. I balance rapid delivery with long-term maintainability — every line of code serves the user and the business.</p>
+        <div class="chip-row stagger">
+          <span class="tag">Clean Architecture</span>
+          <span class="tag">MVVM</span>
+          <span class="tag">Unit Testing</span>
+          <span class="tag">CI/CD</span>
+          <span class="tag">Perf Optimization</span>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <!-- Inlined Script for Tajmirul Style -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Initialize Lucide Icons
-            if (typeof lucide !== 'undefined') lucide.createIcons();
+  <section class="sheet reveal" id="experience">
+    <div class="sheet-head"><span class="sheet-no">03</span><h2>Experience</h2></div>
+    <div class="rev-table stagger">
+      <div class="rev-row rev-current">
+        <span class="rev-badge">D</span>
+        <span>
+          <span class="rev-role">Software Specialist (Mobile App)</span><br>
+          <span class="rev-company">SSL Wireless</span>
+        </span>
+        <span class="rev-dates"><span class="live-dot" aria-hidden="true"></span>SEP 2024 — PRESENT</span>
+      </div>
+      <div class="rev-row">
+        <span class="rev-badge">C</span>
+        <span>
+          <span class="rev-role">Programmer Analyst (Android)</span><br>
+          <span class="rev-company">Computer Ease Ltd.</span>
+        </span>
+        <span class="rev-dates">MAY 2023 — AUG 2024</span>
+      </div>
+      <div class="rev-row">
+        <span class="rev-badge">B</span>
+        <span>
+          <span class="rev-role">Software Engineer (Android)</span><br>
+          <span class="rev-company">Aventra Consultant</span>
+        </span>
+        <span class="rev-dates">MAR 2022 — APR 2023</span>
+      </div>
+      <div class="rev-row">
+        <span class="rev-badge">A</span>
+        <span>
+          <span class="rev-role">Android Developer</span><br>
+          <span class="rev-company">Decode Lab</span>
+        </span>
+        <span class="rev-dates">FEB 2021 — MAR 2022</span>
+      </div>
+    </div>
+  </section>
 
-            // --- Custom Triangle Cursor ---
-            const cursor = document.getElementById('cursor');
-            if (cursor) {
-                document.addEventListener('mousemove', (e) => {
-                    cursor.style.left = `${e.clientX}px`;
-                    cursor.style.top = `${e.clientY}px`;
-                });
+  <section class="sheet reveal" id="projects">
+    <div class="sheet-head"><span class="sheet-no">04</span><h2>Projects</h2></div>
+    <div class="project-grid stagger" id="project-grid">
 
-                // Hover Effect for interactive elements
-                const activeElements = document.querySelectorAll('a, button, .project-card, .experience-item');
-                activeElements.forEach(el => {
-                    el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
-                    el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
-                });
-            }
+      <article class="project-card">
+        <div class="project-head"><span>NO. 01 — FINTECH / BANKING</span><span>SSL Wireless</span></div>
+        <div class="project-media"><img src="assets/mybkb.jpg" alt="myBKB Banking app screens — home menu, fund transfer, and transaction success" loading="lazy"></div>
+        <div class="project-body">
+          <div class="project-copy">
+            <h3>myBKB Banking</h3>
+            <p>Flagship mobile banking app for Bangladesh Krishi Bank — fund transfer, mobile recharge, MFS, bill payments, beneficiary management, and Bangla QR, built in Flutter.</p>
+          </div>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">SSL Wireless</span>
+          <a class="tag" href="https://play.google.com/store/apps/details?id=com.sslwireless.mybkb&amp;pcampaignid=web_share" target="_blank" rel="noopener">Play Store ↗</a>
+        </div>
+      </article>
 
-            // --- Floating Particles Effect ---
-            const initParticles = () => {
-                const bgContainer = document.querySelector('.background-blobs');
-                if (!bgContainer) return;
+      <article class="project-card">
+        <div class="project-head"><span>NO. 02 — DIGITAL BANKING</span><span>SSL Wireless</span></div>
+        <div class="project-media"><img src="assets/nrb.jpg" alt="NRB Click app home screen — accounts, fund transfer, and bill payment shown on a phone" loading="lazy"></div>
+        <div class="project-body">
+          <div class="project-copy">
+            <h3>NRB Bank</h3>
+            <p>Secure digital banking app for NRB Bank — account management, fund transfers, and bill payments with a focus on an intuitive, efficient banking experience.</p>
+          </div>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Flutter</span><span class="tag">REST API</span><span class="tag">SSL Wireless</span>
+          <a class="tag" href="https://play.google.com/store/apps/details?id=com.sslwireless.nrbmobapp&amp;pcampaignid=web_share" target="_blank" rel="noopener">Play Store ↗</a>
+        </div>
+      </article>
 
-                const canvas = document.createElement('canvas');
-                canvas.id = 'particle-canvas';
-                bgContainer.innerHTML = ''; // Clear blobs
-                bgContainer.appendChild(canvas);
+      <article class="project-card">
+        <div class="project-head"><span>NO. 03 — B2B DISTRIBUTION</span><span>Quasem Group</span></div>
+        <div class="project-media project-media-contain"><div class="phone-frame"><img src="assets/hercules.jpg" alt="Hercules (Easy SR) app menu — order, collection, work plan, and tour plan" loading="lazy"></div></div>
+        <div class="project-body">
+          <div class="project-copy">
+            <h3>Hercules</h3>
+            <p>Distribution Management System for Quasem Group — contributed to interface design and streamlined distribution workflows for operational efficiency.</p>
+          </div>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Android</span><span class="tag">UX</span><span class="tag">SSL Wireless</span>
+        </div>
+      </article>
 
-                const ctx = canvas.getContext('2d');
-                let particles = [];
-                let width, height;
+      <article class="project-card">
+        <div class="project-head"><span>NO. 04 — OPERATIONS</span><span>SSL Wireless</span></div>
+        <div class="project-media project-media-contain"><div class="phone-frame"><img src="assets/cgl.jpg" alt="CGL (Concorde Garments Ltd.) app home screen with PP meeting, buyer inspection, and audit shortcuts" loading="lazy"></div></div>
+        <div class="project-body">
+          <div class="project-copy">
+            <h3>CGL</h3>
+            <p>Garment management and daily operational tracking app — workflow monitoring, task management, and streamlined day-to-day garment operations.</p>
+          </div>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Android</span><span class="tag">Operations</span>
+        </div>
+      </article>
 
-                const resize = () => {
-                    width = canvas.width = window.innerWidth;
-                    height = canvas.height = window.innerHeight;
-                };
+      <article class="project-card">
+        <div class="project-head"><span>NO. 05 — B2C / RURAL</span><span>Unilever</span></div>
+        <div class="project-media"><img src="assets/dyuty.jpg" alt="Dyuty app dashboard shown on a phone in a rural tea-garden setting" loading="lazy"></div>
+        <div class="project-body">
+          <div class="project-copy">
+            <h3>Dyuty</h3>
+            <p>B2C app for women in rural areas selling Unilever products — product catalog, stock management, order placement, sales tracking, Bluetooth thermal printing, offline mode, and multilingual support.</p>
+          </div>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Kotlin</span><span class="tag">MVVM</span><span class="tag">Coroutines</span><span class="tag">Room</span><span class="tag">Hilt</span><span class="tag">Retrofit</span>
+        </div>
+      </article>
 
-                window.addEventListener('resize', resize);
-                resize();
+      <article class="project-card">
+        <div class="project-head"><span>NO. 06 — B2B DISTRIBUTION</span><span>Unilever</span></div>
+        <div class="project-media"><img src="assets/diganta.jpg" alt="Diganta app screens for order and stock management, shown on three phones" loading="lazy"></div>
+        <div class="project-body">
+          <div class="project-copy">
+            <h3>Diganta</h3>
+            <p>Digitizes daily operations for Unilever's Pallydut sub-distributors — primary orders, stock management, and delivery tracking with full offline synchronization.</p>
+          </div>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Kotlin</span><span class="tag">Coroutines</span><span class="tag">Room</span><span class="tag">Retrofit</span>
+        </div>
+      </article>
 
-                class Particle {
-                    constructor() {
-                        this.reset();
-                    }
+      <article class="project-card project-card-extra">
+        <div class="project-head"><span>NO. 07 — DAILY OPS</span><span>Unilever</span></div>
+        <div class="project-media project-media-placeholder">
+          <div class="device" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="project-body">
+          <div class="project-copy">
+            <h3>Doorbin</h3>
+            <p>Unilever's daily-operations app — maintained and enhanced with bug fixes and new features to keep day-to-day field operations running smoothly.</p>
+          </div>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Android</span><span class="tag">Kotlin</span><span class="tag">Maintenance</span>
+        </div>
+      </article>
 
-                    reset() {
-                        this.x = Math.random() * width;
-                        this.y = Math.random() * height;
-                        this.size = Math.random() * 1.5 + 0.5;
-                        this.speedX = Math.random() * 0.5 - 0.25;
-                        this.speedY = Math.random() * 0.5 - 0.25;
-                        this.opacity = Math.random() * 0.3 + 0.1;
-                    }
+      <article class="project-card project-card-extra">
+        <div class="project-head"><span>NO. 08 — SALES &amp; DISTRIBUTION</span><span>Coca-Cola (AML)</span></div>
+        <div class="project-media"><img src="assets/ongikar.jpg" alt="Ongikar sales-and-delivery app shown on a phone at a Coca-Cola distribution warehouse" loading="lazy"></div>
+        <div class="project-body">
+          <div class="project-copy">
+            <h3>Ongikar</h3>
+            <p>Sales and distribution app in daily use by Coca-Cola (AML) to run and track their field sales and distribution operations.</p>
+          </div>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Android</span><span class="tag">Java</span><span class="tag">MVVM</span><span class="tag">SQLite</span>
+        </div>
+      </article>
 
-                    update() {
-                        this.x += this.speedX;
-                        this.y += this.speedY;
+      <article class="project-card project-card-extra">
+        <div class="project-head"><span>NO. 09 — SOCIAL COMMERCE</span><span>Aventra Consultant</span></div>
+        <div class="project-media project-media-placeholder">
+          <div class="device" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="project-body">
+          <div class="project-copy">
+            <h3>TingTong</h3>
+            <p>Multi-module social e-commerce app — built the e-commerce and social media modules plus audio/video calling, now at 100K+ users on Google Play.</p>
+          </div>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Android</span><span class="tag">Kotlin</span><span class="tag">Firebase</span>
+        </div>
+      </article>
 
-                        if (this.x < 0) this.x = width;
-                        if (this.x > width) this.x = 0;
-                        if (this.y < 0) this.y = height;
-                        if (this.y > height) this.y = 0;
-                    }
+    </div>
+    <button class="btn btn-outline project-toggle" id="project-toggle" type="button" aria-expanded="false" aria-controls="project-grid">Show all 9 projects</button>
+  </section>
 
-                    draw() {
-                        ctx.fillStyle = `rgba(222, 222, 222, ${this.opacity})`;
-                        ctx.beginPath();
-                        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                        ctx.fill();
-                    }
-                }
+  <section class="sheet reveal" id="skills">
+    <div class="sheet-head"><span class="sheet-no">05</span><h2>Skills</h2></div>
+    <div class="bom-grid">
+      <div class="bom-cat">
+        <h3>Mobile development</h3>
+        <ul class="bom-list stagger">
+          <li>Android (Java, Kotlin, XML)</li>
+          <li>Jetpack Compose</li>
+          <li>MVVM / Clean Architecture</li>
+          <li>Dependency Injection (Hilt)</li>
+          <li>Coroutines / WorkManager</li>
+        </ul>
+      </div>
+      <div class="bom-cat">
+        <h3>Cross-platform</h3>
+        <ul class="bom-list stagger">
+          <li>Flutter &amp; Dart</li>
+          <li>Dart async/await &amp; Isolates</li>
+          <li>Kotlin Flow</li>
+          <li>Provider / Riverpod / BLoC / Cubit</li>
+          <li>Play Store &amp; App Store deployment</li>
+        </ul>
+      </div>
+      <div class="bom-cat">
+        <h3>Backend &amp; APIs</h3>
+        <ul class="bom-list stagger">
+          <li>RESTful APIs</li>
+          <li>Retrofit / Dio / Ktor</li>
+          <li>Firebase Auth &amp; Firestore</li>
+          <li>Realtime Database</li>
+          <li>Cloud Functions &amp; Messaging</li>
+        </ul>
+      </div>
+      <div class="bom-cat">
+        <h3>Tools &amp; others</h3>
+        <ul class="bom-list stagger">
+          <li>SQLite / Room / Hive</li>
+          <li>Android Studio / VS Code</li>
+          <li>Git</li>
+          <li>Antigravity / Codex</li>
+          <li>Claude Code</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-                for (let i = 0; i < 100; i++) {
-                    particles.push(new Particle());
-                }
+  <section class="sheet reveal" id="education">
+    <div class="sheet-head"><span class="sheet-no">06</span><h2>Education</h2></div>
+    <div class="edu-grid stagger">
+      <div class="edu-row">
+        <div>
+          <h3>B.Sc in Software Engineering</h3>
+          <p>Daffodil International University</p>
+        </div>
+        <p>2015 — 2020</p>
+      </div>
+      <div class="edu-row">
+        <div>
+          <h3>Professional Android Development Course</h3>
+          <p>Basis Information &amp; Technology Management (BITM)</p>
+        </div>
+        <p>Certificate</p>
+      </div>
+    </div>
+    <a class="btn btn-outline" href="https://drive.google.com/file/d/1tW0hsLo_qh12docGkcYWytUKimiLu0yk/view?usp=drivesdk" target="_blank" rel="noopener">View certificate</a>
+  </section>
 
-                const animate = () => {
-                    ctx.clearRect(0, 0, width, height);
-                    particles.forEach(p => {
-                        p.update();
-                        p.draw();
-                    });
-                    requestAnimationFrame(animate);
-                };
+  <section class="sheet reveal" id="contact">
+    <div class="sheet-head"><span class="sheet-no">07</span><h2>Contact</h2></div>
+    <div class="contact-grid">
+      <div class="contact-info stagger">
+        <p>Looking for a specialized mobile developer for your next project? Let's discuss how I can help you build something amazing.</p>
+        <div class="contact-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" pathLength="100"></rect><path d="m2 6 10 7 10-7" pathLength="100"></path></svg>
+          <a href="mailto:swemonjur@gmail.com">swemonjur@gmail.com</a>
+        </div>
+        <div class="contact-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.9 2z" pathLength="100"></path></svg>
+          <a href="tel:+8801836879789">+880 1836 879789</a>
+        </div>
+        <div class="contact-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" pathLength="100"></path><circle cx="12" cy="10" r="3" pathLength="100"></circle></svg>
+          <span>Dhaka, Bangladesh</span>
+        </div>
+      </div>
+      <form class="contact-form stagger" id="contact-form">
+        <div class="field">
+          <label for="cf-name">Name</label>
+          <input id="cf-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="cf-email">Email</label>
+          <input id="cf-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" required></textarea>
+        </div>
+        <div>
+          <button class="btn btn-primary" type="submit">Send message</button>
+          <p class="form-note">Opens your email app with this filled in — nothing is sent from here.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
 
-                animate();
-            };
+<footer>
+  <span>© 2026 Monjur E Mowla — Sheet 07 of 07</span>
+</footer>
 
-            initParticles();
+<script>
+  (function () {
+    var toggle = document.getElementById('nav-toggle');
+    var panel = document.getElementById('mobile-panel');
+    var scrim = document.getElementById('scrim');
 
-            // --- Scroll Reveal Animation ---
-            const revealElements = document.querySelectorAll('.reveal');
-            const revealOnScroll = () => {
-                revealElements.forEach(el => {
-                    const rect = el.getBoundingClientRect();
-                    if (rect.top < window.innerHeight * 0.85) {
-                        el.classList.add('active');
-                    }
-                });
-            };
+    function openPanel() {
+      panel.setAttribute('data-open', 'true');
+      panel.setAttribute('aria-hidden', 'false');
+      panel.removeAttribute('inert');
+      scrim.setAttribute('data-open', 'true');
+      toggle.setAttribute('aria-expanded', 'true');
+      var first = panel.querySelector('a');
+      if (first) first.focus();
+    }
+    function closePanel() {
+      panel.setAttribute('data-open', 'false');
+      panel.setAttribute('aria-hidden', 'true');
+      panel.setAttribute('inert', '');
+      scrim.setAttribute('data-open', 'false');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.focus();
+    }
+    toggle.addEventListener('click', function () {
+      var isOpen = panel.getAttribute('data-open') === 'true';
+      isOpen ? closePanel() : openPanel();
+    });
+    scrim.addEventListener('click', closePanel);
+    panel.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', closePanel);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && panel.getAttribute('data-open') === 'true') closePanel();
+    });
 
-            // --- Navbar Scrolling Reveal ---
-            const navbar = document.getElementById('navbar');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            });
+    var projectGrid = document.getElementById('project-grid');
+    var projectToggle = document.getElementById('project-toggle');
+    if (projectGrid && projectToggle) {
+      projectToggle.addEventListener('click', function () {
+        var expanded = projectGrid.classList.toggle('is-expanded');
+        projectToggle.setAttribute('aria-expanded', String(expanded));
+        projectToggle.textContent = expanded ? 'Show fewer projects' : 'Show all 9 projects';
+        if (!expanded) projectGrid.scrollIntoView({ block: 'nearest' });
+      });
+    }
 
-            window.addEventListener('scroll', revealOnScroll);
-            revealOnScroll();
+    var form = document.getElementById('contact-form');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('cf-name').value.trim();
+      var email = document.getElementById('cf-email').value.trim();
+      var message = document.getElementById('cf-message').value.trim();
+      var subject = encodeURIComponent('Portfolio inquiry from ' + name);
+      var body = encodeURIComponent(message + '\n\n— ' + name + ' (' + email + ')');
+      window.location.href = 'mailto:swemonjur@gmail.com?subject=' + subject + '&body=' + body;
+    });
 
-            // --- Smooth Scrolling ---
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const target = document.querySelector(targetId);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
-                });
-            });
+    var sections = document.querySelectorAll('main .sheet, .hero');
+    var rulerLinks = document.querySelectorAll('[data-ruler]');
+
+    function setActive(id) {
+      rulerLinks.forEach(function (a) {
+        a.setAttribute('aria-current', a.getAttribute('data-ruler') === id ? 'true' : 'false');
+      });
+    }
+
+    function animateCount(el) {
+      var to = parseFloat(el.getAttribute('data-to'));
+      var suffix = el.getAttribute('data-suffix') || '';
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduceMotion || !to) { el.textContent = to + suffix; return; }
+      var start = null;
+      var duration = 900;
+      function step(ts) {
+        if (!start) start = ts;
+        var progress = Math.min((ts - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(to * eased) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    var roleTyped = document.querySelector('.role-typed');
+    if (roleTyped) {
+      var srText = document.querySelector('.role .sr-only');
+      var fullRoleText = srText ? srText.textContent : '';
+      var reduceMotionType = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduceMotionType || !fullRoleText) {
+        roleTyped.textContent = fullRoleText;
+      } else {
+        var typeIndex = 0;
+        (function typeChar() {
+          roleTyped.textContent = fullRoleText.slice(0, typeIndex);
+          typeIndex++;
+          if (typeIndex <= fullRoleText.length) setTimeout(typeChar, 26);
+        })();
+      }
+    }
+
+    var progressBar = document.getElementById('scroll-progress');
+    var progressTicking = false;
+    function updateProgress() {
+      var scrollTop = window.scrollY;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = docHeight > 0 ? Math.min(100, (scrollTop / docHeight) * 100) : 0;
+      if (progressBar) progressBar.style.width = pct + '%';
+      progressTicking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!progressTicking) { requestAnimationFrame(updateProgress); progressTicking = true; }
+    }, { passive: true });
+    updateProgress();
+
+    if ('IntersectionObserver' in window) {
+      var spy = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) setActive(entry.target.id);
         });
-    </script>
-</body>
+      }, { rootMargin: '-40% 0px -55% 0px' });
+      sections.forEach(function (s) { spy.observe(s); });
 
+      var reveal = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            entry.target.querySelectorAll('.count-up').forEach(animateCount);
+            reveal.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal, .stagger').forEach(function (el) { reveal.observe(el); });
+    }
+  })();
+</script>
+</body>
 </html>
